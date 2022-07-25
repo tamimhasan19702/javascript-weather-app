@@ -36,14 +36,17 @@ header i{
 }
 .wrapper .input-part{
     margin: 20px 25px 30px;
+    display: none;
 }
 
 .input-part .info-txt{
+    display: none;
     font-weight: 500;
     font-size: 17px;
-    padding: 12px 10px;
+    padding: 16px 15px;
     text-align: center;
     border-radius: 7px;
+    margin-bottom: 15px;
 }
 .input-part .info-txt.erorr{
     color: #721c24;
@@ -92,5 +95,6 @@ header i{
 }
 
 .input-part input:is(:focus,:valid){
-    border: 2px solid #43affc;
+    border: 3px solid #43affc;
+    transition: all 0.3s ease ;
 }
