@@ -50,5 +50,28 @@ function fetchData(){
 }
 
 function weatherDetails(info){
- console.log(info);
+    
+    if(info.cod === "404"){
+        infoText.innerText = `${inputField.value} isn't a valid city name`;
+        infoText.classList.add("error");
+    }   
+    else{
+    const city = info.name;
+    const country = info.sys.country;
+    const {description,id} = info.weather[0];
+    const {feels_like,humidity,temp} = info.main;
+
+    wrapper.querySelector(".temp .numb").innerText = temp;
+    wrapper.querySelector(".weather").innerText = description;
+    wrapper.querySelector(".location span").innerText = `${city},${country}`;
+    wrapper.querySelector(".temp .numb-2").innerText = feels_like;
+    wrapper.querySelector(".humidity span").innerText = humidity;
+
+
+
+    infoText.classList.remove("pending", "error");
+    wrapper.classList.add("active");
+    console.log(info);
+    }
+ 
 }
