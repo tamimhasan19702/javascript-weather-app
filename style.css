@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
 *{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -57,12 +57,13 @@ header i{
     border-radius: 7px;
     margin-bottom: 15px;
 }
-.input-part .info-txt.erorr{
+.input-part .info-txt.error{
     color: #721c24;
     background: #f8d7da;
     border: 1px solid #f5c6cb;
 }
 .info-txt.pending{
+    display: block;
     color: #0c5460;
     background: #d1ecf1;
     border: 1px solid #bee5eb;
