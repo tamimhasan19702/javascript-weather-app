@@ -63,8 +63,22 @@ function weatherDetails(info){
     const {feels_like,humidity,temp} = info.main;
 
 
+    // custom icon according to the weather api return
+    if(id === 800){
+        weatherIcon.src = "./weather-app-icons/clear.svg";
+    }else if(id >= 200 && id <= 232){
+        weatherIcon.src = "./weather-app-icons/storm.svg";
+    }else if(id >= 600 && id <= 622){
+        weatherIcon.src = "./weather-app-icons/snow.svg";
+    }else if(id >= 701 && id <= 781){
+        weatherIcon.src = "./weather-app-icons/haze.svg";
+    }else if(id >= 801 && id <= 804){
+        weatherIcon.src = "./weather-app-icons/cloud.svg";
+    }else if((id >= 300 && id <= 321) || (id >= 500 && id <= 531)){
+        weatherIcon.src = "./weather-app-icons/rain.svg";
+    }
 
-    // render values into
+    // render values into the display
     wrapper.querySelector(".temp .numb").innerText = Math.floor(temp);
     wrapper.querySelector(".weather").innerText = description;
     wrapper.querySelector(".location span").innerText = `${city},${country}`;
