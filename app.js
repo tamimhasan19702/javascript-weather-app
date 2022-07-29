@@ -3,7 +3,8 @@ const wrapper = document.querySelector('.wrapper'),
       infoText = document.querySelector('.info-txt'),
       inputField = document.querySelector('input'),
       locationBtn = document.querySelector('button');
-      weatherIcon = document.querySelector('.weather-part img');
+      weatherIcon = document.querySelector('.weather-part img'),
+      arrowBack = wrapper.querySelector("header i");
 
 let api;      
 
@@ -93,3 +94,7 @@ function weatherDetails(info){
     }
  
 }
+
+arrowBack.addEventListener('click' , ()=> {
+    wrapper.classList.remove('active');
+})
