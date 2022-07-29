@@ -3,6 +3,7 @@ const wrapper = document.querySelector('.wrapper'),
       infoText = document.querySelector('.info-txt'),
       inputField = document.querySelector('input'),
       locationBtn = document.querySelector('button');
+      weatherIcon = document.querySelector('.weather-part img');
 
 let api;      
 
@@ -26,7 +27,7 @@ locationBtn.addEventListener("click", () => {
 
 function onSuccess(position){
     const {latitude, longitude} = position.coords;
-    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
     fetchData();
 }
 
@@ -38,7 +39,7 @@ function onError(error){
 
 
 function requestApi(city){
-    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     fetchData();
 }
 
@@ -61,11 +62,14 @@ function weatherDetails(info){
     const {description,id} = info.weather[0];
     const {feels_like,humidity,temp} = info.main;
 
-    wrapper.querySelector(".temp .numb").innerText = temp;
+
+
+    // render values into
+    wrapper.querySelector(".temp .numb").innerText = Math.floor(temp);
     wrapper.querySelector(".weather").innerText = description;
     wrapper.querySelector(".location span").innerText = `${city},${country}`;
-    wrapper.querySelector(".temp .numb-2").innerText = feels_like;
-    wrapper.querySelector(".humidity span").innerText = humidity;
+    wrapper.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
+    wrapper.querySelector(".humidity span").innerText =`${humidity}%`;
 
 
 
